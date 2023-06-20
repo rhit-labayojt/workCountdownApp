@@ -1,0 +1,17 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#countdown {
+  font-size: 48px;
+}
+
+#endCountdown {
+  font-size: 48px;
+}
+
+/* Dashed border */
+hr.dashed {
+  border-top: 3px dashed #bbb;
+}
