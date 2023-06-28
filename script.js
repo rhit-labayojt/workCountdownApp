@@ -24,10 +24,10 @@ function startCountdown() {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
 
-  // if (btnPrsd == true) {
-  //   targetTime.setDate(targetTime.getDate() + 1);
-  //   targetEndTime.setDate(targetEndTime.getDate() + 1);
-  // }
+  if (btnPrsd == true) {
+    targetTime.setDate(targetTime.getDate() + 1);
+    targetEndTime.setDate(targetEndTime.getDate() + 1);
+  }
 
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime);
@@ -64,7 +64,7 @@ document.getElementById("myButton").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
-  // startCountdown;
+  startCountdown;
 });
 
 // Start the countdown when the page loads
