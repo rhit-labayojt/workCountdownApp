@@ -22,24 +22,17 @@ function startCountdown() {
       targetEndTime.setDate(targetEndTime.getDate() + 1);
     }
 
-    document.getElementById("myButton").addEventListener("click", function() {
-      // Code to be executed when the button is clicked
-      alert("Enjoy your day off!");
-      targetTime.setDate(targetTime.getDate() + 1);
-      targetEndTime.setDate(targetEndTime.getDate() + 1);
-    });
-
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime);
   setInterval(updateEndCountdown, 1000, targetEndTime);
 }
 
-function updateCountdown(targetTime) {
+function updateCountdown(targetTime, addHrs) {
   const currentTime = new Date();
   const distance = targetTime - currentTime;
 
   // Calculate hours, minutes, and seconds
-  const hours = Math.floor(distance / (1000 * 60 * 60));
+  const hours = Math.floor((distance / (1000 * 60 * 60))+addHrs);
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -60,12 +53,11 @@ function updateEndCountdown(targetEndTime) {
   document.getElementById('endCountdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 }
 
-// document.getElementById("myButton").addEventListener("click", function() {
-//   // Code to be executed when the button is clicked
-//   alert("Enjoy your day off!");
-//   targetTime.setDate(targetTime.getDate() + 1);
-//   targetEndTime.setDate(targetEndTime.getDate() + 1);
-// });
+document.getElementById("myButton").addEventListener("click", function() {
+  // Code to be executed when the button is clicked
+  alert("Enjoy your day off!");
+  updateCountdown(targetTime, 24)
+});
 
 // Start the countdown when the page loads
 window.onload = startCountdown;
