@@ -24,7 +24,7 @@ function startCountdown() {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
 
-  if(btnPrsd = true){
+  if(btnPrsd == true){
     targetTime.setDate(targetTime.getDate() + 1);
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
@@ -34,12 +34,12 @@ function startCountdown() {
   setInterval(updateEndCountdown, 1000, targetEndTime);
 }
 
-function updateCountdown(targetTime, addHrs) {
+function updateCountdown(targetTime) {
   const currentTime = new Date();
   const distance = targetTime - currentTime;
 
   // Calculate hours, minutes, and seconds
-  const hours = Math.floor((distance / (1000 * 60 * 60)) + addHrs);
+  const hours = Math.floor(distance / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -47,12 +47,12 @@ function updateCountdown(targetTime, addHrs) {
   document.getElementById('countdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 }
 
-function updateEndCountdown(targetEndTime, addHrs) {
+function updateEndCountdown(targetEndTime) {
   const currentTime = new Date();
   const distance = targetEndTime - currentTime;
 
   // Calculate hours, minutes, and seconds
-  const hours = Math.floor((distance / (1000 * 60 * 60)) + addHrs);
+  const hours = Math.floor(distance / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -71,7 +71,8 @@ document.getElementById("myButton").addEventListener("click", function () {
 // window.onload = startCountdown;
 
 window.onload = (event) => {
-  startCountdown;
   btnPrsd=false;
+  startCountdown;
+  
 };
 
