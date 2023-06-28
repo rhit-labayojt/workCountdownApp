@@ -53,5 +53,10 @@ function updateEndCountdown(targetEndTime) {
   document.getElementById('endCountdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 }
 
+document.getElementById("myButton").addEventListener("click", function() {
+  // Code to be executed when the button is clicked
+  alert("Button clicked!");
+});
+
 // Start the countdown when the page loads
 window.onload = startCountdown;
