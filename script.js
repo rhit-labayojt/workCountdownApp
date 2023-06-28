@@ -64,7 +64,7 @@ document.getElementById("myButton").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
-  startCountdown;
+  startCountdown();
 });
 
 // Start the countdown when the page loads
@@ -72,6 +72,6 @@ document.getElementById("myButton").addEventListener("click", function () {
 
 window.onload = (event) => {
   let btnPrsd = false;
-  startCountdown;
+  startCountdown();
 };
 
