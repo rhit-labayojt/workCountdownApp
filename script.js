@@ -1,4 +1,4 @@
-let btnPrsd = false;
+// let btnPrsd = false;
 
 function startCountdown() {
   // Set the target time for the work start countdown (e.g., 1:20 PM)
@@ -24,7 +24,7 @@ function startCountdown() {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
 
-  if(btnPrsd == true){
+  if (btnPrsd == true) {
     targetTime.setDate(targetTime.getDate() + 1);
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
@@ -71,8 +71,7 @@ document.getElementById("myButton").addEventListener("click", function () {
 // window.onload = startCountdown;
 
 window.onload = (event) => {
-  btnPrsd=false;
+  let btnPrsd = false;
   startCountdown;
-  
 };
 
