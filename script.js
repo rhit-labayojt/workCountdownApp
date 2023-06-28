@@ -55,7 +55,9 @@ function updateEndCountdown(targetEndTime) {
 
 document.getElementById("myButton").addEventListener("click", function() {
   // Code to be executed when the button is clicked
-  alert("Button clicked!");
+  alert("Enjoy your day off!");
+  targetTime.setDate(targetTime.getDate() + 1);
+  targetEndTime.setDate(targetEndTime.getDate() + 1);
 });
 
 // Start the countdown when the page loads
