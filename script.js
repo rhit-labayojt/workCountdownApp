@@ -1,4 +1,4 @@
-// let btnPrsd = false;
+let btnPrsd = false;
 
 function startCountdown() {
   // Set the target time for the work start countdown (e.g., 1:20 PM)
@@ -68,10 +68,10 @@ document.getElementById("myButton").addEventListener("click", function () {
 });
 
 // Start the countdown when the page loads
-// window.onload = startCountdown;
+window.onload = startCountdown;
 
-window.onload = (event) => {
-  let btnPrsd = false;
-  startCountdown();
-};
+// window.onload = (event) => {
+//   let btnPrsd = false;
+//   startCountdown();
+// };
 
