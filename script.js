@@ -1,3 +1,5 @@
+let btnPrsd = false;
+
 function startCountdown() {
   // Set the target time for the work start countdown (e.g., 1:20 PM)
   const targetTime = new Date();
@@ -16,11 +18,17 @@ function startCountdown() {
     targetTime.setDate(targetTime.getDate() + 1);
   }
 
-    // Check if the current time is already past the target time for today
-    if (currentTime > targetEndTime) {
-      // Increment the current date by one day
-      targetEndTime.setDate(targetEndTime.getDate() + 1);
-    }
+  // Check if the current time is already past the target time for today
+  if (currentTime > targetEndTime) {
+    // Increment the current date by one day
+    targetEndTime.setDate(targetEndTime.getDate() + 1);
+  }
+
+  if(btnPrsd = true){
+    targetTime.setDate(targetTime.getDate() + 1);
+    targetEndTime.setDate(targetEndTime.getDate() + 1);
+  }
+  
 
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime);
@@ -32,7 +40,7 @@ function updateCountdown(targetTime, addHrs) {
   const distance = targetTime - currentTime;
 
   // Calculate hours, minutes, and seconds
-  const hours = Math.floor((distance / (1000 * 60 * 60))+addHrs);
+  const hours = Math.floor((distance / (1000 * 60 * 60)) + addHrs);
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -40,12 +48,12 @@ function updateCountdown(targetTime, addHrs) {
   document.getElementById('countdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 }
 
-function updateEndCountdown(targetEndTime) {
+function updateEndCountdown(targetEndTime, addHrs) {
   const currentTime = new Date();
   const distance = targetEndTime - currentTime;
 
   // Calculate hours, minutes, and seconds
-  const hours = Math.floor(distance / (1000 * 60 * 60));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) + addHrs);
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -53,10 +61,11 @@ function updateEndCountdown(targetEndTime) {
   document.getElementById('endCountdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 }
 
-document.getElementById("myButton").addEventListener("click", function() {
+document.getElementById("myButton").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
-  updateCountdown(targetTime, 24)
+  btnPrsd = true
+  startCountdown;
 });
 
 // Start the countdown when the page loads
