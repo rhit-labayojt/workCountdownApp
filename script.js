@@ -28,7 +28,6 @@ function startCountdown() {
     targetTime.setDate(targetTime.getDate() + 1);
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
-  
 
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime);
@@ -69,4 +68,10 @@ document.getElementById("myButton").addEventListener("click", function () {
 });
 
 // Start the countdown when the page loads
-window.onload = startCountdown;
+// window.onload = startCountdown;
+
+window.onload = (event) => {
+  startCountdown;
+  btnPrsd=false;
+};
+
