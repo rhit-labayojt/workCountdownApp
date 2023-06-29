@@ -11,22 +11,17 @@ function startCountdown() {
 
   // Get the current time
   const currentTime = new Date();
-
-  if (btnPrsd == true) {
-    targetTime.setDate(targetTime.getDate() + 1);
-    targetEndTime.setDate(targetEndTime.getDate() + 1);
+    
+  // Check if the current time is already past the target time for today
+ if (currentTime > targetTime) {
+    // Increment the current date by one day
+    targetTime.setDate(targetTime.getDate() + 1+btnPrsd);
   }
 
   // Check if the current time is already past the target time for today
-  if (currentTime > targetTime) {
+   if (currentTime > targetEndTime) {
     // Increment the current date by one day
-    targetTime.setDate(targetTime.getDate() + 1);
-  }
-
-  // Check if the current time is already past the target time for today
-  if (currentTime > targetEndTime) {
-    // Increment the current date by one day
-    targetEndTime.setDate(targetEndTime.getDate() + 1);
+    targetEndTime.setDate(targetEndTime.getDate() + 1+btnPrsd);
   }
 
   // Start the countdown interval
