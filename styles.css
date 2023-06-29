@@ -13,7 +13,7 @@
 
 /* Dashed border */
 hr.dashed {
-  border-top: 3px dashed #bbb;
+  border-top: 3px dashed #7a7a7a;
 }
 
 .borderexample {
