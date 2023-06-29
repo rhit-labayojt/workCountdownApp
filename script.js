@@ -3,11 +3,11 @@ let btnPrsd = false;
 function startCountdown() {
   // Set the target time for the work start countdown (e.g., 1:20 PM)
   const targetTime = new Date();
-  targetTime.setHours(13, 20, 0); // Set the desired hour, minute, and second
+  targetTime.setHours(13+(24*btnPrsd), 20, 0); // Set the desired hour, minute, and second
 
   // Set the target time for the work end countdown (e.g., 10:30 PM)
   const targetEndTime = new Date();
-  targetEndTime.setHours(22, 30, 0); // Set the desired hour, minute, and second
+  targetEndTime.setHours(22+(24*btnPrsd), 30, 0); // Set the desired hour, minute, and second
 
   // Get the current time
   const currentTime = new Date();
@@ -15,13 +15,13 @@ function startCountdown() {
   // Check if the current time is already past the target time for today
  if (currentTime > targetTime) {
     // Increment the current date by one day
-    targetTime.setDate(targetTime.getDate() + 1+btnPrsd);
+    targetTime.setDate(targetTime.getDate() + 1);
   }
 
   // Check if the current time is already past the target time for today
    if (currentTime > targetEndTime) {
     // Increment the current date by one day
-    targetEndTime.setDate(targetEndTime.getDate() + 1+btnPrsd);
+    targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
 
   // Start the countdown interval
