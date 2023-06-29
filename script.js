@@ -12,6 +12,11 @@ function startCountdown() {
   // Get the current time
   const currentTime = new Date();
 
+  if (btnPrsd == true) {
+    targetTime.setDate(targetTime.getDate() + 1);
+    targetEndTime.setDate(targetEndTime.getDate() + 1);
+  }
+
   // Check if the current time is already past the target time for today
   if (currentTime > targetTime) {
     // Increment the current date by one day
@@ -21,11 +26,6 @@ function startCountdown() {
   // Check if the current time is already past the target time for today
   if (currentTime > targetEndTime) {
     // Increment the current date by one day
-    targetEndTime.setDate(targetEndTime.getDate() + 1);
-  }
-
-  if (btnPrsd == true) {
-    targetTime.setDate(targetTime.getDate() + 1);
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   }
 
@@ -64,7 +64,7 @@ document.getElementById("myButton").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
-  startCountdown();
+  // startCountdown();
 });
 
 // Start the countdown when the page loads
