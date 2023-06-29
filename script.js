@@ -36,7 +36,7 @@ function startCountdown() {
 function updateCountdown(targetTime, targetEndTime) {
   const currentTime = new Date();
   const distance1 = targetTime - currentTime;
-  const distance2 = targetTime - currentTime;
+  const distance2 = targetEndTime - currentTime;
 
   // Calculate hours, minutes, and seconds
   const hours1 = Math.floor(distance1 / (1000 * 60 * 60));
