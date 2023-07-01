@@ -1,47 +1,50 @@
 let btnPrsd = null;
 
 function startCountdown() {
-  console.log("1startCountdown btnPrsd = "+btnPrsd);
 
-  // Set the target time for the work start countdown (1:20 PM)
+  // Set the target time for the work start countdown (1:20 PM), end countdown 10:30 PM)
   const targetTime = new Date();
-  targetTime.setHours(13, 20, 0); // Set the desired hour, minute, and second
+  targetTime.setHours(13, 20, 0); // Set the desired hour, minute, second
 
-  // Set the target time for the work end countdown (10:30 PM)
   const targetEndTime = new Date();
-  targetEndTime.setHours(22, 30, 0); // Set the desired hour, minute, and second
+  targetEndTime.setHours(22, 30, 0); // Set the desired hour, minute, second
 
-  // Get the current time
+  // Get current time
   const currentTime = new Date();
 
-  console.log("2startCountdown btnPrsd = "+btnPrsd);
   console.log(localStorage.getItem('btnPrsd'))
     
-  // Check if the current time is past target time for today, Increment the current date by one day
- if (currentTime > targetTime || "true"==localStorage.getItem('btnPrsd')) {
-    console.log("btn is true");
+  // Check if: current time is past target time for today || no work today => Increment current date by one day
+  if(currentTime > targetTime){
     targetTime.setDate(targetTime.getDate() + 1);
-  };
+  }else if("true"==localStorage.getItem('btnPrsd')){
+    targetTime.setDate(targetTime.getDate() + 1);
+  }else if(currentTime < targetTime && "false"==localStorage.getItem('btnPrsd')){
+    targetTime.setDate = new Date();
+    targetTime.setHours(13, 20, 0);
+  }
+
+
+//  if (currentTime > targetTime || "true"==localStorage.getItem('btnPrsd')) {
+//     console.log("btn is true");
+//     targetTime.setDate(targetTime.getDate() + 1);
+//   };
+
   if (currentTime > targetEndTime || "true"==localStorage.getItem('btnPrsd')) {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
 
-    // Check if the current time is past target time for today, decrement the current date by one day
- if (localStorage.getItem('name')=="false") {
-  targetTime.setDate(targetTime.getDate() - 1);
-};
-if (localStorage.getItem('name')=="false") {
-  targetEndTime.setDate(targetEndTime.getDate() - 1);
-};
+  // Check if the current time is past target time for today, decrement the current date by one day
+//  if (localStorage.getItem('btnPrsd')=="false") {
+//   targetTime.setDate(targetTime.getDate() - 1);
+//   targetEndTime.setDate(targetEndTime.getDate() - 1);
+//   };
 
-  console.log("3startCountdown btnPrsd = "+btnPrsd);
   // Start the countdown interval
   setInterval(updateCountdown, 2000, targetTime, targetEndTime);
-  console.log("4startCountdown btnPrsd = "+btnPrsd);
 };
 
 function updateCountdown(targetTime, targetEndTime) {
-  console.log("1updateCountdownbtnPrsd = "+btnPrsd);
   const currentTime = new Date();
   const distance1 = targetTime - currentTime;
   const distance2 = targetEndTime - currentTime;
@@ -55,32 +58,23 @@ function updateCountdown(targetTime, targetEndTime) {
   const minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
   const seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
 
-  console.log("2updateCountdown btnPrsd = "+btnPrsd);
-
   // Display the countdown
   document.getElementById('countdown').innerHTML = `${hours1}h ${minutes1}m ${seconds1}s`;
   document.getElementById('endCountdown').innerHTML = `${hours2}h ${minutes2}m ${seconds2}s`;
 
-  console.log("3updateCountdown btnPrsd = "+btnPrsd);
 };
 
 document.getElementById("noWorkBtn").addEventListener("click", function () {
-  // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
   localStorage.setItem('btnPrsd', btnPrsd);
-  // localStorage.getItem('btnPrsd')
-  // console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
 
 document.getElementById("workBtn").addEventListener("click", function () {
-  // Code to be executed when the button is clicked
   alert("Oh boy");
   btnPrsd = false;
   localStorage.setItem('btnPrsd', btnPrsd);
-  // localStorage.getItem('btnPrsd')
-  // console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
 
