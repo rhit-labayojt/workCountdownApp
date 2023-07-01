@@ -13,6 +13,8 @@ function startCountdown() {
 
   // Get the current time
   const currentTime = new Date();
+
+  console.log("2startCountdown btnPrsd = "+btnPrsd);
     
   // Check if the current time is already past the target time for today
  if (currentTime > targetTime || btnPrsd==true) {
@@ -25,12 +27,12 @@ function startCountdown() {
     // Increment the current date by one day
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
-  console.log("2startCountdown btnPrsd = "+btnPrsd);
+  console.log("3startCountdown btnPrsd = "+btnPrsd);
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime, targetEndTime);
   // setInterval(updateEndCountdown, 1000, targetEndTime);
-  console.log("3startCountdown btnPrsd = "+btnPrsd);
-}
+  console.log("4startCountdown btnPrsd = "+btnPrsd);
+};
 
 function updateCountdown(targetTime, targetEndTime) {
   console.log("1updateCountdownbtnPrsd = "+btnPrsd);
@@ -47,11 +49,13 @@ function updateCountdown(targetTime, targetEndTime) {
   const minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
   const seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
 
+  console.log("2updateCountdown btnPrsd = "+btnPrsd);
+
   // Display the countdown
   document.getElementById('countdown').innerHTML = `${hours1}h ${minutes1}m ${seconds1}s`;
   document.getElementById('endCountdown').innerHTML = `${hours2}h ${minutes2}m ${seconds2}s`;
 
-  console.log("2updateCountdown btnPrsd = "+btnPrsd);
+  console.log("3updateCountdown btnPrsd = "+btnPrsd);
 };
 
 document.getElementById("noWorkBtn").addEventListener("click", function () {
@@ -72,9 +76,4 @@ document.getElementById("workBtn").addEventListener("click", function () {
 
 // Start the countdown when the page loads
 window.onload = startCountdown;
-
-// window.onload = (event) => {
-//   let btnPrsd = false;
-//   startCountdown();
-// };
 
