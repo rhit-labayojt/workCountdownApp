@@ -18,6 +18,7 @@ function startCountdown() {
     
   // Check if the current time is past target time for today, Increment the current date by one day
  if (currentTime > targetTime || "true"==localStorage.getItem('name')) {
+    console.log("btn is true");
     targetTime.setDate(targetTime.getDate() + 1);
   };
   if (currentTime > targetEndTime || "true"==localStorage.getItem('name')) {
