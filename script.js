@@ -1,7 +1,7 @@
 let btnPrsd = false;
 
 function startCountdown() {
-  console.log("startCountdown btnPrsd = "+btnPrsd);
+  console.log("1startCountdown btnPrsd = "+btnPrsd);
 
   // Set the target time for the work start countdown (1:20 PM)
   const targetTime = new Date();
@@ -15,27 +15,25 @@ function startCountdown() {
   const currentTime = new Date();
     
   // Check if the current time is already past the target time for today
- if (currentTime > targetTime) {
+ if (currentTime > targetTime || btnPrsd==true) {
     // Increment the current date by one day
     targetTime.setDate(targetTime.getDate() + 1);
-  }else if (btnPrsd==true) {
-    targetTime.setDate(targetTime.getDate() + 1);
-  }
+  };
 
   // Check if the current time is already past the target time for today
-   if (currentTime > targetEndTime) {
+   if (currentTime > targetEndTime || btnPrsd==true) {
     // Increment the current date by one day
     targetEndTime.setDate(targetEndTime.getDate() + 1);
-  }else if (btnPrsd==true) {
-    targetEndTime.setDate(targetEndTime.getDate() + 1);
-  }
-
+  };
+  console.log("2startCountdown btnPrsd = "+btnPrsd);
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime, targetEndTime);
   // setInterval(updateEndCountdown, 1000, targetEndTime);
+  console.log("3startCountdown btnPrsd = "+btnPrsd);
 }
 
 function updateCountdown(targetTime, targetEndTime) {
+  console.log("1updateCountdownbtnPrsd = "+btnPrsd);
   const currentTime = new Date();
   const distance1 = targetTime - currentTime;
   const distance2 = targetEndTime - currentTime;
@@ -53,7 +51,7 @@ function updateCountdown(targetTime, targetEndTime) {
   document.getElementById('countdown').innerHTML = `${hours1}h ${minutes1}m ${seconds1}s`;
   document.getElementById('endCountdown').innerHTML = `${hours2}h ${minutes2}m ${seconds2}s`;
 
-  console.log("updateCountdown btnPrsd = "+btnPrsd);
+  console.log("2updateCountdown btnPrsd = "+btnPrsd);
 };
 
 document.getElementById("noWorkBtn").addEventListener("click", function () {
@@ -64,13 +62,13 @@ document.getElementById("noWorkBtn").addEventListener("click", function () {
   startCountdown();
 });
 
-// document.getElementById("workBtn").addEventListener("click", function () {
-//   // Code to be executed when the button is clicked
-//   alert("Oh boy");
-//   btnPrsd = false;
-//   console.log("btnPrsd = "+btnPrsd);
-//   startCountdown();
-// });
+document.getElementById("workBtn").addEventListener("click", function () {
+  // Code to be executed when the button is clicked
+  alert("Oh boy");
+  btnPrsd = false;
+  console.log("btnPrsd = "+btnPrsd);
+  startCountdown();
+});
 
 // Start the countdown when the page loads
 window.onload = startCountdown;
