@@ -17,18 +17,18 @@ function startCountdown() {
   console.log("2startCountdown btnPrsd = "+btnPrsd);
     
   // Check if the current time is past target time for today, Increment the current date by one day
- if (currentTime > targetTime || btnPrsd==true) {
+ if (currentTime > targetTime || btnPrsd==localStorage.getItem('name')) {
     targetTime.setDate(targetTime.getDate() + 1);
   };
-  if (currentTime > targetEndTime || btnPrsd==true) {
+  if (currentTime > targetEndTime || btnPrsd==localStorage.getItem('name')) {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
 
     // Check if the current time is past target time for today, decrement the current date by one day
- if (currentTime > targetTime || btnPrsd==false) {
+ if (currentTime > targetTime || btnPrsd==localStorage.getItem('name')) {
   targetTime.setDate(targetTime.getDate() - 1);
 };
-if (currentTime > targetEndTime || btnPrsd==false) {
+if (currentTime > targetEndTime || btnPrsd==localStorage.getItem('name')) {
   targetEndTime.setDate(targetEndTime.getDate() - 1);
 };
 
@@ -66,7 +66,9 @@ document.getElementById("noWorkBtn").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
-  console.log("btnPrsd = "+btnPrsd);
+  localStorage.setItem('btnPrsd', JSON.stringify(btnPrsd));
+  localStorage.getItem('btnPrsd')
+  // console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
 
@@ -74,7 +76,9 @@ document.getElementById("workBtn").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Oh boy");
   btnPrsd = false;
-  console.log("btnPrsd = "+btnPrsd);
+  localStorage.setItem('btnPrsd', JSON.stringify(btnPrsd));
+  localStorage.getItem('btnPrsd')
+  // console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
 
