@@ -1,4 +1,4 @@
-let btnPrsd = false;
+let btnPrsd = null;
 
 function startCountdown() {
   console.log("1startCountdown btnPrsd = "+btnPrsd);
@@ -16,21 +16,25 @@ function startCountdown() {
 
   console.log("2startCountdown btnPrsd = "+btnPrsd);
     
-  // Check if the current time is already past the target time for today
+  // Check if the current time is past target time for today, Increment the current date by one day
  if (currentTime > targetTime || btnPrsd==true) {
-    // Increment the current date by one day
     targetTime.setDate(targetTime.getDate() + 1);
   };
-
-  // Check if the current time is already past the target time for today
-   if (currentTime > targetEndTime || btnPrsd==true) {
-    // Increment the current date by one day
+  if (currentTime > targetEndTime || btnPrsd==true) {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
+
+    // Check if the current time is past target time for today, decrement the current date by one day
+ if (currentTime > targetTime || btnPrsd==false) {
+  targetTime.setDate(targetTime.getDate() - 1);
+};
+if (currentTime > targetEndTime || btnPrsd==false) {
+  targetEndTime.setDate(targetEndTime.getDate() - 1);
+};
+
   console.log("3startCountdown btnPrsd = "+btnPrsd);
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime, targetEndTime);
-  // setInterval(updateEndCountdown, 1000, targetEndTime);
   console.log("4startCountdown btnPrsd = "+btnPrsd);
 };
 
