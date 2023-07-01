@@ -17,18 +17,18 @@ function startCountdown() {
   console.log("2startCountdown btnPrsd = "+btnPrsd);
     
   // Check if the current time is past target time for today, Increment the current date by one day
- if (currentTime > targetTime || btnPrsd==localStorage.getItem('name')) {
+ if (currentTime > targetTime || true==localStorage.getItem('name')) {
     targetTime.setDate(targetTime.getDate() + 1);
   };
-  if (currentTime > targetEndTime || btnPrsd==localStorage.getItem('name')) {
+  if (currentTime > targetEndTime || true==localStorage.getItem('name')) {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
 
     // Check if the current time is past target time for today, decrement the current date by one day
- if (currentTime > targetTime || btnPrsd==localStorage.getItem('name')) {
+ if (localStorage.getItem('name')==false) {
   targetTime.setDate(targetTime.getDate() - 1);
 };
-if (currentTime > targetEndTime || btnPrsd==localStorage.getItem('name')) {
+if (localStorage.getItem('name')==false) {
   targetEndTime.setDate(targetEndTime.getDate() - 1);
 };
 
