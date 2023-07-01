@@ -1,6 +1,7 @@
 let btnPrsd = false;
 
 function startCountdown() {
+  console.log("startCountdown btnPrsd = "+btnPrsd);
   // Set the target time for the work start countdown (1:20 PM)
   const targetTime = new Date();
   targetTime.setHours(13, 20, 0); // Set the desired hour, minute, and second
@@ -31,6 +32,8 @@ function startCountdown() {
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime, targetEndTime);
   // setInterval(updateEndCountdown, 1000, targetEndTime);
+
+
 }
 
 function updateCountdown(targetTime, targetEndTime) {
@@ -51,7 +54,7 @@ function updateCountdown(targetTime, targetEndTime) {
   document.getElementById('countdown').innerHTML = `${hours1}h ${minutes1}m ${seconds1}s`;
   document.getElementById('endCountdown').innerHTML = `${hours2}h ${minutes2}m ${seconds2}s`;
 
-  console.log("btnPrsd = "+btnPrsd);
+  console.log("updateCountdown btnPrsd = "+btnPrsd);
 }
 
 // function updateCountdown(targetTime) {
@@ -80,10 +83,18 @@ function updateCountdown(targetTime, targetEndTime) {
 //   document.getElementById('endCountdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 // }
 
-document.getElementById("myButton").addEventListener("click", function () {
+document.getElementById("noWorkBtn").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
+  console.log("btnPrsd = "+btnPrsd);
+  startCountdown();
+});
+
+document.getElementById("workBtn").addEventListener("click", function () {
+  // Code to be executed when the button is clicked
+  alert("Oh boy");
+  btnPrsd = false;
   console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
