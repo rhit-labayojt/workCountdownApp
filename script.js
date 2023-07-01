@@ -50,6 +50,8 @@ function updateCountdown(targetTime, targetEndTime) {
   // Display the countdown
   document.getElementById('countdown').innerHTML = `${hours1}h ${minutes1}m ${seconds1}s`;
   document.getElementById('endCountdown').innerHTML = `${hours2}h ${minutes2}m ${seconds2}s`;
+
+  console.log("btnPrsd = "+btnPrsd);
 }
 
 // function updateCountdown(targetTime) {
