@@ -2,6 +2,7 @@ let btnPrsd = false;
 
 function startCountdown() {
   console.log("startCountdown btnPrsd = "+btnPrsd);
+
   // Set the target time for the work start countdown (1:20 PM)
   const targetTime = new Date();
   targetTime.setHours(13, 20, 0); // Set the desired hour, minute, and second
@@ -32,8 +33,6 @@ function startCountdown() {
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime, targetEndTime);
   // setInterval(updateEndCountdown, 1000, targetEndTime);
-
-
 }
 
 function updateCountdown(targetTime, targetEndTime) {
@@ -55,33 +54,7 @@ function updateCountdown(targetTime, targetEndTime) {
   document.getElementById('endCountdown').innerHTML = `${hours2}h ${minutes2}m ${seconds2}s`;
 
   console.log("updateCountdown btnPrsd = "+btnPrsd);
-}
-
-// function updateCountdown(targetTime) {
-//   const currentTime = new Date();
-//   const distance = targetTime - currentTime;
-
-//   // Calculate hours, minutes, and seconds
-//   const hours = Math.floor(distance / (1000 * 60 * 60));
-//   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-//   // Display the countdown
-//   document.getElementById('countdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-// }
-
-// function updateEndCountdown(targetEndTime) {
-//   const currentTime = new Date();
-//   const distance = targetEndTime - currentTime;
-
-//   // Calculate hours, minutes, and seconds
-//   const hours = Math.floor(distance / (1000 * 60 * 60));
-//   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-//   // Display the countdown
-//   document.getElementById('endCountdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-// }
+};
 
 document.getElementById("noWorkBtn").addEventListener("click", function () {
   // Code to be executed when the button is clicked
@@ -91,13 +64,13 @@ document.getElementById("noWorkBtn").addEventListener("click", function () {
   startCountdown();
 });
 
-document.getElementById("workBtn").addEventListener("click", function () {
-  // Code to be executed when the button is clicked
-  alert("Oh boy");
-  btnPrsd = false;
-  console.log("btnPrsd = "+btnPrsd);
-  startCountdown();
-});
+// document.getElementById("workBtn").addEventListener("click", function () {
+//   // Code to be executed when the button is clicked
+//   alert("Oh boy");
+//   btnPrsd = false;
+//   console.log("btnPrsd = "+btnPrsd);
+//   startCountdown();
+// });
 
 // Start the countdown when the page loads
 window.onload = startCountdown;
