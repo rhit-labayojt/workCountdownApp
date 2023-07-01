@@ -15,13 +15,14 @@ function startCountdown() {
   const currentTime = new Date();
 
   console.log("2startCountdown btnPrsd = "+btnPrsd);
+  console.log(localStorage.getItem('btnPrsd'))
     
   // Check if the current time is past target time for today, Increment the current date by one day
- if (currentTime > targetTime || "true"==localStorage.getItem('name')) {
+ if (currentTime > targetTime || "true"==localStorage.getItem('btnPrsd')) {
     console.log("btn is true");
     targetTime.setDate(targetTime.getDate() + 1);
   };
-  if (currentTime > targetEndTime || "true"==localStorage.getItem('name')) {
+  if (currentTime > targetEndTime || "true"==localStorage.getItem('btnPrsd')) {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
 
