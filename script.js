@@ -17,24 +17,24 @@ function startCountdown() {
   console.log("2startCountdown btnPrsd = "+btnPrsd);
     
   // Check if the current time is past target time for today, Increment the current date by one day
- if (currentTime > targetTime || true==localStorage.getItem('name')) {
+ if (currentTime > targetTime || "true"==localStorage.getItem('name')) {
     targetTime.setDate(targetTime.getDate() + 1);
   };
-  if (currentTime > targetEndTime || true==localStorage.getItem('name')) {
+  if (currentTime > targetEndTime || "true"==localStorage.getItem('name')) {
     targetEndTime.setDate(targetEndTime.getDate() + 1);
   };
 
     // Check if the current time is past target time for today, decrement the current date by one day
- if (localStorage.getItem('name')==false) {
+ if (localStorage.getItem('name')=="false") {
   targetTime.setDate(targetTime.getDate() - 1);
 };
-if (localStorage.getItem('name')==false) {
+if (localStorage.getItem('name')=="false") {
   targetEndTime.setDate(targetEndTime.getDate() - 1);
 };
 
   console.log("3startCountdown btnPrsd = "+btnPrsd);
   // Start the countdown interval
-  setInterval(updateCountdown, 1000, targetTime, targetEndTime);
+  setInterval(updateCountdown, 2000, targetTime, targetEndTime);
   console.log("4startCountdown btnPrsd = "+btnPrsd);
 };
 
@@ -66,8 +66,8 @@ document.getElementById("noWorkBtn").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
-  localStorage.setItem('btnPrsd', JSON.stringify(btnPrsd));
-  localStorage.getItem('btnPrsd')
+  localStorage.setItem('btnPrsd', btnPrsd);
+  // localStorage.getItem('btnPrsd')
   // console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
@@ -76,8 +76,8 @@ document.getElementById("workBtn").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Oh boy");
   btnPrsd = false;
-  localStorage.setItem('btnPrsd', JSON.stringify(btnPrsd));
-  localStorage.getItem('btnPrsd')
+  localStorage.setItem('btnPrsd', btnPrsd);
+  // localStorage.getItem('btnPrsd')
   // console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
