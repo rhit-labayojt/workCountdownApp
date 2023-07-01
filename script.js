@@ -84,6 +84,7 @@ document.getElementById("myButton").addEventListener("click", function () {
   // Code to be executed when the button is clicked
   alert("Enjoy your day off!");
   btnPrsd = true;
+  console.log("btnPrsd = "+btnPrsd);
   startCountdown();
 });
 
