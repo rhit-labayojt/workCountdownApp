@@ -5,18 +5,25 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Leave for work in</h1>
-    <div id="countdown"></div>
+  <div class="flex-container">
 
-    <hr class="dashed">
+    <div class="flex-child">
+      <h1>Leave for work in</h1>
+      <div id="countdown"></div>
+    </div>
+  
+    <div class="flex-child">
+      <h1><span class="borderexample"> Clock out in: </span></h1>
+      <div id="endCountdown"></div>
+    </div>
 
-    <h1><span class="borderexample"> Clock out in: </span></h1>
-    <div id="endCountdown"></div>
-    <button id="noWorkBtn">I don't work today</button>
-    <button id="workBtn">Just kidding, I do work today</button>
-   
   </div>
+  
+    <div class="container">
+      <button id="noWorkBtn">I don't work today!</button>
+      <button id="workBtn">Just kidding, I do work today</button>
+      <p>Pst, refresh the page after pressing a button!</p>
+    </div>
 
   <script src="script.js"></script>
 </body>

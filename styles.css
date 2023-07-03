@@ -1,6 +1,7 @@
 .container {
   text-align: center;
   margin-top: 50px;
+  flex: 1;
 }
 
 #countdown {
@@ -21,3 +22,12 @@ hr.dashed {
   border-style:solid;
   border-color:#288e39;
  }
+
+ .flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+  border: 2px solid yellow;
+}
