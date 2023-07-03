@@ -13,22 +13,36 @@ function startCountdown() {
   const currentTime = new Date();
 
   console.log(localStorage.getItem('btnPrsd'))
+
+    // Check if: current time is past target time for today || no work today => Increment current date by one day
+    if(currentTime > targetTime){
+      targetTime.setDate(targetTime.getDate() + 1);
+    }else if("true"==localStorage.getItem('btnPrsd')){
+      targetTime.setDate(targetTime.getDate() + 1);
+    }else if(currentTime < targetTime && "false"==localStorage.getItem('btnPrsd')){
+      targetTime.setDate = new Date();
+      targetTime.setHours(13, 20, 0);
+    }
+    if (currentTime > targetEndTime || "true"==localStorage.getItem('btnPrsd')) {
+      targetEndTime.setDate(targetEndTime.getDate() + 1);
+    };
+
     
   // Check if: current time is past target time for today || no work today => Increment current date by one day
- if (currentTime > targetTime || "true"==localStorage.getItem('btnPrsd')) {
-    console.log("btn is true");
-    targetTime.setDate(targetTime.getDate() + 1);
-  };
+//  if (currentTime > targetTime || "true"==localStorage.getItem('btnPrsd')) {
+//     console.log("btn is true");
+//     targetTime.setDate(targetTime.getDate() + 1);
+//   };
 
-  if (currentTime > targetEndTime || "true"==localStorage.getItem('btnPrsd')) {
-    targetEndTime.setDate(targetEndTime.getDate() + 1);
-  };
+//   if (currentTime > targetEndTime || "true"==localStorage.getItem('btnPrsd')) {
+//     targetEndTime.setDate(targetEndTime.getDate() + 1);
+//   };
 
-  // Check if the current time is past target time for today, decrement the current date by one day
- if (localStorage.getItem('btnPrsd')=="false") {
-  targetTime.setDate(targetTime.getDate() - 1);
-  targetEndTime.setDate(targetEndTime.getDate() - 1);
-  };
+//   // Check if the current time is past target time for today, decrement the current date by one day
+//  if (localStorage.getItem('btnPrsd')=="false") {
+//   targetTime.setDate(targetTime.getDate() - 1);
+//   targetEndTime.setDate(targetEndTime.getDate() - 1);
+//   };
 
   // Start the countdown interval
   setInterval(updateCountdown, 1000, targetTime, targetEndTime);
