@@ -2,6 +2,9 @@
   text-align: center;
   margin-top: 50px;
   flex: 1;
+}
+
+.timer-container {
   background-color: #5ce773;
 }
 
