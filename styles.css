@@ -9,11 +9,11 @@
   margin-right: 500px;
 }
 
-.green {
+.timer-container.green {
   background-color: #5ce773;
 }
 
-.blue {
+.timer-container.blue {
   background-color: #5ca8e7;
 }
 
