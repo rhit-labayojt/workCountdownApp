@@ -5,9 +5,8 @@
 }
 
 .timer-container {
-  /* margin-left: 500px;
-  margin-right: 500px; */
-  margin: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
 }
 
 .timer-container.green {
