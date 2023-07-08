@@ -46,12 +46,14 @@
   margin: 15px 2px 1px;
   background-color: #e7785cb7;
   box-shadow: 4px 4px 5px #888888;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-button:hover {background-color: #e7785c}
+button:hover {
+  background-color: #e7785c;}
 
 button:active {
-  /*   background-color: #3e8e41; */
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+  box-shadow: 1px 0px 5px #888888;
+  transform: translateY(2px);
   }
