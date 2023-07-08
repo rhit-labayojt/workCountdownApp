@@ -7,6 +7,7 @@
 .timer-container {
   margin-left: 30%;
   margin-right: 30%;
+  box-shadow: 4px 4px 5px #888888;
 }
 
 .timer-container.green {
@@ -43,5 +44,6 @@
   text-align: center;
   font-size: 17px;
   margin: 15px 2px 1px;
-  background-color: #e7785cb7
+  background-color: #e7785cb7;
+  box-shadow: 4px 4px 5px #888888;
 }
