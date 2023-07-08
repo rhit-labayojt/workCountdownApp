@@ -52,14 +52,14 @@ function updateCountdown(targetTime, targetEndTime) {
 };
 
 document.getElementById("noWorkBtn").addEventListener("click", function () {
-  alert("Enjoy your day off!");
+  // alert("Enjoy your day off!");
   btnPrsd = true;
   localStorage.setItem('btnPrsd', btnPrsd);
   startCountdown();
 });
 
 document.getElementById("workBtn").addEventListener("click", function () {
-  alert("Oh boy");
+  // alert("Oh boy..");
   btnPrsd = false;
   localStorage.setItem('btnPrsd', btnPrsd);
   startCountdown();
